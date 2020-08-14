@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="../mame/style.css">
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        
+        <script type="text/javascript" src="../mame/emularity/es6-promise.js"></script>
+        <script type="text/javascript" src="../mame/emularity/browserfs.min.js"></script>
+        <script type="text/javascript" src="../mame/emularity/loader.js"></script>
+        <script type="text/javascript" src="../mame/simulatekey.js"></script>
+        <script type="text/javascript">
+            var emulator = new Emulator(
+                document.querySelector("#canvas"),
+                null,
+                new JSMAMELoader(
+                    JSMAMELoader.driver("mslug"),
+                    JSMAMELoader.emulatorJS("mameneogeo.js"),
+                    JSMAMELoader.mountFile("neogeo.zip", JSMAMELoader.fetchFile("Bios", "neogeo.zip")),
+                    JSMAMELoader.mountFile("mslug.zip", JSMAMELoader.fetchFile("Game File", "mslug.zip"))
+                )
+            );
+            
+            emulator.setSplashImage('../mame/logo/emularity_color.png');
+            emulator.start({ waitAfterDownloading: false });
+        </script>
+    </body>
+</html>

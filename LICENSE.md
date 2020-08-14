@@ -1,0 +1,1 @@
+The arcade ROMS were obtained from [archive.org](https://archive.org/details/MAME_0.209_ROMs_merged). Since they've been there for a long time, hopefully having some here won't be an issue (I can't hotlink them).
